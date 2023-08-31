@@ -1,6 +1,6 @@
-// require('electron-reload')(__dirname);//don't forget to comment this line when running "npm run dist"
+require('electron-reload')(__dirname);//don't forget to comment this line when running "npm run dist"
 const { app, BrowserWindow, ipcMain } = require('electron');
-const { getCategories } = require('./database.cjs');
+const { getCategories, getGrille } = require('./database.cjs');
 
 function createWindow () {
     const win = new BrowserWindow({
@@ -33,9 +33,11 @@ app.on('activate', () => {
     }
 });
 
-ipcMain.handle('fetch-categories', async (event) => {
+
+
+ipcMain.handle('fetch-Grille', async (event) => {
     return new Promise((resolve, reject) => {
-        getCategories((data) => {
+        getGrille((data) => {
             resolve(data);
         });
     });
