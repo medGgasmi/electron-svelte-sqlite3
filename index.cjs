@@ -1,6 +1,6 @@
 require('electron-reload')(__dirname);//don't forget to comment this line when running "npm run dist"
 const { app, BrowserWindow, ipcMain } = require('electron');
-const { getCategories, getGrille } = require('./database.cjs');
+const { getGrille } = require('./database.cjs');
 
 function createWindow () {
     const win = new BrowserWindow({
